@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="{{asset('public/dashboard/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{asset('public/dashboard/vendors/selectFX/css/cs-skin-elastic.css')}}">
     <link rel="stylesheet" href="{{asset('public/dashboard/vendors/jqvmap/dist/jqvmap.min.css')}}">
-
+    <link rel="stylesheet" href="{{asset('public/dashboard/vendors/datatables.net-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('public/dashboard/vendors/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('public/dashboard/assets/css/style.css')}}">
 

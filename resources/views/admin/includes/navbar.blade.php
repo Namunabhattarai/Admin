@@ -23,6 +23,13 @@
                         <li><i class="fa fa-table"></i><a href="tables-data.html">Data Table</a></li>
                     </ul>
                 </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-table"></i>Category</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa fa-table"></i><a href="{{route('addCategory')}}">Add Category</a></li>
+                        <li><i class="fa fa-table"></i><a href="{{route('category.index')}}">View Category</a></li>
+                    </ul>
+                </li>
                 
             </ul>
         </div><!-- /.navbar-collapse -->

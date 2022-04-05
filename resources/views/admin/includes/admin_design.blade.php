@@ -32,6 +32,7 @@
 
     @include('admin.includes.script')
 
+
 </body>
 
 </html>
