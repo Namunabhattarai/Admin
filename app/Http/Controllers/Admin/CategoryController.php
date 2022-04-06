@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 use App\Models\Category;
 use DataTables;
+
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -11,11 +13,13 @@ use Illuminate\Support\Facades\Session;
 class CategoryController extends Controller
 {
    public function index(){
-       return view('admin.category.index');
+       $categories=Category::latest()->get();
+       return view('admin.category.index',compact('categories'));
    }
 
     public function addCategory(){
-        return view('admin.category.add');
+        $categories = Category::where('parent_id', 0)->get();
+        return view('admin.category.add', compact('categories'));
     }
     public function storeCategory(Request $request){
         $data = $request->all();
@@ -73,14 +77,14 @@ class CategoryController extends Controller
             ->rawColumns(['action'])
             ->make(true);
     }
-    public function edit($id){
+    public function editCategory($id){
         $categoryData = Category::findOrFail($id);
         $categories = Category::where('parent_id', 0)->get();
         return view ('admin.category.edit', compact('categoryData', 'categories'));
     }
 
     // Update Category
-    public function update(Request $request, $id){
+    public function updateCategory(Request $request, $id){
         $data = $request->all();
         $rules = [
             'category_name' => 'required|max:255',
@@ -112,7 +116,7 @@ class CategoryController extends Controller
         return redirect()->back();
     }
 
-    public function delete($id){
+    public function deleteCategory($id){
         $category = Category::findOrFail($id);
         $category->delete();
         DB::table('categories')->where('parent_id', $id)->delete();

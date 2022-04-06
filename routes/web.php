@@ -18,7 +18,15 @@ Route::get('/category/index', [App\Http\Controllers\Admin\CategoryController::cl
 Route::post('/category/store', [App\Http\Controllers\Admin\CategoryController::class, 'storeCategory'])->name('storeCategory');
 Route::get('/category/table', [App\Http\Controllers\Admin\CategoryController::class, 'dataTable'])->name('tableCategory');
 Route::get('/category/edit/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'editCategory'])->name('editCategory');
-Route::get('/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'updateCategory'])->name('updateCategory');
+Route::post('/category/update/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'updateCategory'])->name('updateCategory');
 Route::get('/category/delete/{id}', [App\Http\Controllers\Admin\CategoryController::class, 'deleteCategory'])->name('deleteCategory');
+//product
+Route::get('/add-product', [App\Http\Controllers\Admin\ProductController::class, 'addProduct'])->name('addProduct');
+Route::get('/product/index', [App\Http\Controllers\Admin\ProductController::class, 'index'])->name('product.index');
+Route::post('/product/store', [App\Http\Controllers\Admin\ProductController::class, 'storeProduct'])->name('storeProduct');
+Route::get('/product/table', [App\Http\Controllers\Admin\ProductController::class, 'dataTable'])->name('tableProduct');
+Route::get('pProduct/edit/{id}', [App\Http\Controllers\Admin\ProductController::class, 'editProduct'])->name('editProduct');
+Route::post('/product/update/{id}', [App\Http\Controllers\Admin\ProductController::class, 'updateProduct'])->name('updateProduct');
+Route::get('/product/delete/{id}', [App\Http\Controllers\Admin\ProductController::class, 'deleteProduct'])->name('deleteProduct');
 });
 });
