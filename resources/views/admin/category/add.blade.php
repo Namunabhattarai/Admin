@@ -34,10 +34,7 @@
                          <label>Active</label>
                     </div>
                 </div>
-                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="name" class=" form-control-label">Category Name<span class="text-danger">*</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="name" name="category_name" placeholder="Enter category name" class="form-control"></div>
-                </div>
+                
                
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-sm">

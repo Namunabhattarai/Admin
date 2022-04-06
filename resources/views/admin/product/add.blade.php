@@ -10,9 +10,9 @@
             <form action="{{route('storeProduct')}}" method="post" enctype="multipart/form-data" class="form-horizontal">
                 @csrf
                 <div class="row form-group">
-                    <div class="col col-md-3"><label for="parent_id" class=" form-control-label">Select Category <span class="text-danger">*</label></div>
+                    <div class="col col-md-3"><label for="category_id" class=" form-control-label">Select Category <span class="text-danger">*</label></div>
                     <div class="col-12 col-md-9">
-                        <select name="parent_id" id="parent_id" class="form-control-sm form-control">
+                        <select name="category_id" id="category_id" class="form-control-sm form-control">
                             <option selected disabled>Select Category</option>
                             @foreach($categories as $category)
                                 <option value="{{ $category['id'] }}">{{ $category['category_name'] }}</option>
@@ -22,7 +22,7 @@
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="name" class=" form-control-label">Product Name<span class="text-danger">*</label></div>
-                    <div class="col-12 col-md-9"><input type="text" id="name" name="category_name" placeholder="Enter category name" class="form-control"></div>
+                    <div class="col-12 col-md-9"><input type="text" id="name" name="product_name" placeholder="Enter category name" class="form-control"></div>
                 </div>
                 <div class="row form-group">
                     <div class="col col-md-3"><label for="image" class=" form-control-label">Image<span class="text-danger">*</label></div>

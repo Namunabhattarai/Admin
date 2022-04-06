@@ -42,7 +42,7 @@
                                         
                                     </td>    
                                     <td><a href="{{route('editCategory',$category->id)}}" data-toggle="tooltip" title="Edit" class="btn btn-sm btn-outline-primary"><i class="fa fa-edit"></i></a>
-                                        <a href="{{route('deleteCategory',$category->id)}}" data-toggle="tooltip" title="Delete" class="btn btn-sm btn-outline-danger btn-delete"><i class="fa fa-trash-o"></i></a>
+                                        <a href="{{route('deleteCategory',$category->id)}}" data-toggle="tooltip" title="Delete" class="btn btn-sm btn-outline-danger btnDelete"><i class="fa fa-trash-o"></i></a>
                                     </td>
                                     
                                 </tr>   
@@ -66,39 +66,24 @@
 <script src="{{ asset('public/dashboard/assets/js/jquery.sweet-alert.custom.js') }}"></script>
 <script src="{{ asset('public/dashboard/assets/js/sweetalert.min.js') }}"></script>
 
-
 <script>
-    $("#category-datatable").DataTable({
-        processing: true,
-        serverSide: true,
-        sorting: true,
-        searchable: true,
-        responsive: true,
-        ajax: "{{ route('tableCategory') }}",
-        columns: [
-            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-            {data: 'category_name', name: 'category_name'},
-            // {data: 'parent_id', name: 'parent_id'},
-            // {data: 'action', name: 'action', orderable: false},
-        ]
-    });
-    $('body').on('click', '.btn-delete', function (event){
-              event.preventDefault();
-            //   var SITEURL = '{{ URL::to('') }}';
-            //   var id = $(this).attr('rel');
-            //   var deleteFunction = $(this).attr('rel1');
-            //   swal({
-            //       title: 'Are you sure?',
-            //       text: "You won't be able to revert this!",
-            //       icon: 'warning',
-            //       showCancelButton: true,
-            //       confirmButtonText: 'Yes, delete it!',
-            //       cancelButtonText: 'No, cancel!',
-            //   },
-            //   function(){
-            //       window.location.href = SITEURL + "/admin/" + deleteFunction + "/" + id;
-              });
-          });
+$('body').on('click', '.btnDelete', function (event){
+    event.preventDefault();
+    var SITEURL = '{{ URL('/') }}';
+    var id = $(this).attr('rel1');
+    var deleteFunction = $(this).attr('rel');
+    swal({
+            title: "Are You Sure? ",
+            text: "You will not be able to recover this record again",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn-danger",
+            confirmButtonText: "Yes, Delete it!"
+        },
+        function () {
+            window.location.href = SITEURL + "/admin/"  + deleteFunction + "/" + id;
+        });
+})
+<script>
 
-</script>
 @endsection
